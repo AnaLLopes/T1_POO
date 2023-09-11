@@ -3,7 +3,7 @@ public class ItemVenda
     private int numero;
     private Produto produto;
     private double precoUnitarioCobrado;
-     //esse preco nao seria o mesmo do produto? 
+     //esse preco nao seria o mesmo do produto?
      //porque se for, nao tem necessidade de fazer o getvalorItem, sendo que ja tem o getPreco
     private int quantidade;
 
