@@ -1,11 +1,16 @@
 public class Venda 
 {
-    private int numero; //seria o contador de vendas?
+    private int numero; //seria o numero do recibo da venda?
     private ItemVenda[] itens;
+    private double imposto;
 
     public Venda()
     {
          itens = new ItemVenda[numero]; //não precisa colocar tamanho?
+    }
+    public boolean insereItem(int codigo, int quantidade)
+    {
+        Produto achaproduto = Estoque.getProduto(codigo);
     }
 
     public int getNumero()
@@ -19,6 +24,10 @@ public class Venda
         for(int i = 0; i<numero; i++)
         {
             soma = soma + itens[i].getPrecoUnitario();
+        }
+        if(soma>250)
+        {
+            return soma*0.1;
         }
         return soma; 
     }
@@ -34,9 +43,7 @@ public class Venda
     }
     public double getSubtotal()
     {
-        if(numero>10)
-        double subtotal = (calculaImposto() + total());
-    
-        
+       double subtotal = 
+        //precisa calcular o imposot o desocnto dos 250
     }
 }
