@@ -46,4 +46,25 @@ public class Venda
        double subtotal = 
         //precisa calcular o imposot o desocnto dos 250
     }
+
+    public double getDesconto(){
+        return desconto;
+    }
+
+    public boolean insereItem(Produto produto, int quantidade){
+        return true;
+
+    }
+
+    public boolean removeItem(int numero){
+        return true;
+    }
+
+    public boolean fecha(){
+        return true;
+    }
+
+    public boolean imprimeRecibo(){
+        return true;
+    }
 }
