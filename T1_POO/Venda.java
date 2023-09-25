@@ -4,14 +4,26 @@ public class Venda
     private ItemVenda[] itens;
     private double imposto;
 
-    public Venda()
+    public Venda(int numero)
     {
-         itens = new ItemVenda[numero]; //não precisa colocar tamanho?
+        this.numero = numero;
+         itens = new ItemVenda[0]; //não precisa colocar tamanho?
     }
-    public boolean insereItem(int codigo, int quantidade)
-    {
+   
+    public boolean insereItem(int codigo, int quantidade, double precoUnitario) {
         Produto achaproduto = Estoque.getProduto(codigo);
+        if (achaproduto != null) {
+            double subtotalItem = quantidade * precoUnitario;
+            ItemVenda item = new ItemVenda(achaproduto, quantidade, precoUnitario, subtotalItem);
+            ItemVenda[] novoItens = new ItemVenda[itens.length + 1];
+            System.arraycopy(itens, 0, novoItens, 0, itens.length);
+            novoItens[itens.length] = item;
+            itens = novoItens;
+            return true;
+        }
+        return false; 
     }
+
 
     public int getNumero()
     {
@@ -41,30 +53,13 @@ public class Venda
         double impostos = soma * 25/100;
         return impostos;
     }
-    public double getSubtotal()
-    {
-       double subtotal = 
-        //precisa calcular o imposot o desocnto dos 250
+    public double getSubtotal() {
+        double subtotal = 0;
+        for (int i = 0; i < itens.length; i++) {
+            subtotal += itens[i].getSubtotal();
+        }
+        return subtotal;
     }
+    
+}  
 
-    public double getDesconto(){
-        return desconto;
-    }
-
-    public boolean insereItem(Produto produto, int quantidade){
-        return true;
-
-    }
-
-    public boolean removeItem(int numero){
-        return true;
-    }
-
-    public boolean fecha(){
-        return true;
-    }
-
-    public boolean imprimeRecibo(){
-        return true;
-    }
-}
