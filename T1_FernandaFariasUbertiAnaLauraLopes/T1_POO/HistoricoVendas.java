@@ -29,7 +29,7 @@ public Venda getVenda(int numero) {
     }
      return null;
 }
-/** 
+
 public Venda[] getUltimasVendas(int n) {
     int totalVendas = 0;
     for (int i = 0; i < vendas.length; i++) {
@@ -51,7 +51,7 @@ public Venda[] getUltimasVendas(int n) {
 
     return ultimasVendas;
 }
-*/
+
 public Venda[] getUltimasVendas(int inicio , int fim) {
     // Primeiro verifica se os indices sao validos
     //if (inicio < 0 || fim > vendas.length)

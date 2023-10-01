@@ -77,8 +77,8 @@ public   Produto getProduto(int codigo)
     }
 
 
-@Override
-public String toString() {
-    return "Estoque [Itens= " + Arrays.toString(itens) + "]";
-}
+    @Override
+    public String toString() {
+            return "Estoque [Itens= " + Arrays.toString(itens) + "]";
+        }
 }

@@ -57,7 +57,7 @@ public class App {
                         switch(nv)
                         {
                             case 1:
-                                System.out.println("Digite código do produto:");
+                                System.out.println("Digite o código do produto:");
                                 int cod = scanner.nextInt();
                                 System.out.println("Digite a quantidade do produto:");
                                 int quant = scanner.nextInt();
@@ -69,7 +69,7 @@ public class App {
                             case 2:
                                 vendam.imprimeRecibo();
                                 boolean cadastrav = hv.cadastraVenda(vendam);
-                                System.out.println("Venda Finalizada!");
+                                System.out.println("Venda finalizada!");
                                 sec = false;
                                 break;
                             
@@ -85,37 +85,34 @@ public class App {
                     break;
                 case 3:
                     System.out.println("Opção 3 selecionada: Verificar histórico de vendas");
-                    System.out.println("Digite o inicio do historico da venda");//arrumar o portugues1
-                    
+                    System.out.println("Digite o início do historico da venda");//q inicio?
                     int in = scanner.nextInt();
-                    System.out.println("Digite o inicio do historico da venda");
-                    int fim = scanner.nextInt();
-                    Venda[] v =  hv.getUltimasVendas(in, fim);
+                    Venda[] v =  hv.getUltimasVendas(in);
                     System.out.println(v);
                     break;
                 case 4:
                     System.out.println("Opção 4 selecionada: Cadastrar um produto");
                     System.out.println("Digite o codigo:");
                     int cod = scanner.nextInt();
-                    System.out.println("Digite a descricao:");
+                    System.out.println("Digite a descrição:");
                     String des = scanner.nextLine();
-                    System.out.println("Digite o preço unitario:");
+                    System.out.println("Digite o preço unitário:");
                     double pcu = scanner.nextDouble();
                     Produto x2 = new Produto(cod, des, pcu);
                     System.out.println("Digite a quantidade:");
                     int quant = scanner.nextInt();
                     boolean cadastra = e.cadastraProduto(x2, quant);
                     break;
-                case 5: 
+                case 5: //formatar
                     System.out.println(e);
                     break;
                 case 6:
-                    System.out.println("Digite código do produto:");
+                    System.out.println("Digite o código do produto:");
                     int codr = scanner.nextInt();
                     System.out.println("Digite a quantidade do produto:");
                     int quantr = scanner.nextInt();
                     boolean rep = e.reposicaoEstoque(codr, quantr);
-                    System.out.println("Reposição realizada com sucesso!");
+                    System.out.println("Reposição re9alizada com sucesso!");
                 case 7:
                     System.out.println("Saindo do programa. Até logo!");
                     scanner.close();
