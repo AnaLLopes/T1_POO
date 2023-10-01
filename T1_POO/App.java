@@ -38,17 +38,20 @@ public class App {
             switch (opcao) {
                 case 1:
                     System.out.println("Opção 1 selecionada: Realizar cadastro de venda");
-                    HistoricoVendas.cadastraVenda();
+                    System.out.println("Digite a quantidade de produtos da venda:");
+                    int quant_venda = scanner.nextInt();
+                    Venda x = new Venda (quant_venda);
+                    HistoricoVendas.cadastraVenda(X);
                     break;
                 case 2:
                     System.out.println("Opção 2 selecionada: Verificar estoque");
                     System.out.println("Digite o código do produto:");
                     int c = scanner.nextInt();
-                    Estoque.getQuantidade(c);
+                    Estoque.getQuantidadeDisponivel(c);
                     break;
                 case 3:
                     System.out.println("Opção 3 selecionada: Verificar histórico de vendas");
-                    HistoricoVendas.getUltimasVendas():
+                    HistoricoVendas.getUltimasVendas();
                     break;
                 case 4:
                     System.out.println("Opção 4 selecionada: Cadastrar um produto");
@@ -58,7 +61,10 @@ public class App {
                     String des = scanner.nextLine();
                     System.out.println("Digite o preço unitario:");
                     double pcu = scanner.nextDouble();
-                    
+                    Produto x = new Produto(cod, des, pcu);
+                    System.out.println("Digite a quantidade:");
+                    int quant = scanner.nextInt();
+                    Estoque.cadastraProduto(x, quant);
                     break;
                 case 5:
                     System.out.println("Saindo do programa. Até logo!");
@@ -70,4 +76,3 @@ public class App {
         }
     }
 }
-
