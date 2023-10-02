@@ -32,12 +32,12 @@ public class App {
         while (aleatorio) {
             System.out.println("=== Menu Principal ===");
             System.out.println("1. Realizar venda");
-            System.out.println("2. Verificar quantidade do produto no estoque"); //mostrar produto especifico 
+            System.out.println("2. Verificar quantidade do produto no estoque"); 
             System.out.println("3. Verificar histórico de vendas");//ver o erro
             System.out.println("4. Cadastrar um produto no estoque");
-            System.out.println("5. Mostrar o estoque"); //mostrar o estoque completo
+            System.out.println("5. Mostrar o estoque"); 
             System.out.println("6. Realizar reposição");
-            System.out.println("7. Cadatrar produto");
+            System.out.println("7. Cadastrar produto");
             System.out.println("8. Sair");
 
             System.out.print("Escolha uma opção: ");
@@ -132,10 +132,11 @@ public class App {
                     int quant = scanner.nextInt();
                     boolean cadastra = e.cadastraProduto(x2, quant);
                     break;
-                case 5: //formatar
+                case 5:
                     System.out.println(e);
                     break;
                 case 6:
+                System.out.println("Opção 6: Realizar reposição");
                     System.out.println("Digite o código do produto:");
                     int codr = scanner.nextInt();
                     System.out.println("Digite a quantidade do produto:");
@@ -143,6 +144,7 @@ public class App {
                     boolean rep = e.reposicaoEstoque(codr, quantr);
                     System.out.println("Reposição realizada com sucesso!");
                 case 7: 
+                    System.out.println("Opção 7: Cadastrar produto");
                     System.out.println("Digite o código do produto:");
                     int codc = scanner.nextInt();
                     System.out.println("Digite a descrição do produto:");
@@ -150,6 +152,7 @@ public class App {
                     System.out.println("Digite o preço unitário do produto");
                     double prec = scanner.nextDouble();
                     Produto p7 = new Produto(codc, desc, prec);
+                    catalogo.cadastraProduto(p7);
                     System.out.println("Produto cadastrado com sucesso!");
                     break;
                 case 8:

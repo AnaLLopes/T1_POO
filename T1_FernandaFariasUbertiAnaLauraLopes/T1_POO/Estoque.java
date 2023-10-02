@@ -4,16 +4,18 @@ public class Estoque
 {
    public static Object produto;
 private ItemEstoque[] itens;
+private int cont;
 
 public Estoque (int tamanho)
 {
      this.itens = new ItemEstoque[tamanho];
+     this.cont = 0;
 }
 
 
 public int getQuantidadeDisponivel(int codigo)
     {
-        for(int i = 0; i<itens.length; i++)
+        for(int i = 0; i<cont; i++)
         {
             if(itens[i].getProduto().getCodigo() == codigo)
             {
@@ -25,7 +27,7 @@ public int getQuantidadeDisponivel(int codigo)
 
 public boolean baixaEstoque(int codigo, int quantidade)
     {
-      for(int i = 0; i<itens.length; i++)
+      for(int i = 0; i<cont; i++)
         {
             if(itens[i].getProduto().getCodigo() == codigo)
             {
@@ -38,7 +40,7 @@ public boolean baixaEstoque(int codigo, int quantidade)
 
 public boolean reposicaoEstoque(int codigo, int quantidade)
     {
-     for(int i = 0; i<itens.length; i++)
+     for(int i = 0; i<cont; i++)
             {
                 if(itens[i].getProduto().getCodigo() == codigo)
                 {
@@ -58,6 +60,7 @@ public boolean cadastraProduto(Produto produto, int quantidade)
             if(itens[i]==null)
             {
                 itens[i] = ie1;
+                cont++;
                 return true;
             }  
             }  
