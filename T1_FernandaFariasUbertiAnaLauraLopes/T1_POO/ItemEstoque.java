@@ -37,7 +37,8 @@ public Produto getProduto()
 
 @Override
 public String toString() {
-    return "ItemEstoque [ " + produto + 
-                         ", quantidade=" + quantidade + "]";
+    return "ItemEstoque " + produto + ", Quantidade =" + quantidade + "]\n";
+
 }
+
 }

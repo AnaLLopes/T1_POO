@@ -125,7 +125,7 @@ public class Venda
 
     @Override
     public String toString() {
-        return "Venda [numero=" + numero + ", itens=" + Arrays.toString(itensv) + ", imposto=" + imposto + "]";
+        return "Venda [Número =" + numero + ", Itens =" + Arrays.toString(itensv) + ", Imposto =" + imposto + "]";
     }
 
    

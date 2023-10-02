@@ -30,49 +30,30 @@ public Venda getVenda(int numero) {
      return null;
 }
 
-public Venda[] getUltimasVendas(int n) {
-    int totalVendas = 0;
-    for (int i = 0; i < vendas.length; i++) {
-        Venda venda = vendas[i];
-        if (venda != null) {
-            totalVendas++;
-        }
-    }
-
-    Venda[] ultimasVendas = new Venda[n];
-    int j = 0;
-
-    for (int i = totalVendas - 1; i >= 0 && j < n; i--) {
-        if (vendas[i] != null) {
-            ultimasVendas[j] = vendas[i];
-            j++;
-        }
-    }
-
+public Venda[] getUltimasVendas(int n)
+{
+    if (n >= 0 && n < vendas.length) {
+        Venda[] ultimasVendas = new Venda[n];
+        int contadorUltimasVendas = 0;
+    
+        for(int i = vendas.length - 1; i>=0 && contadorUltimasVendas < n ; i--)
+            {
+            
+                    ultimasVendas[contadorUltimasVendas] = vendas[i];
+                    contadorUltimasVendas++;
+                
+            
+            }
     return ultimasVendas;
 }
-
-public Venda[] getUltimasVendas(int inicio , int fim) {
-    // Primeiro verifica se os indices sao validos
-    //if (inicio < 0 || fim > vendas.length)
-      //  throw new IndexOutOfBoundsException();
-    //if (inicio > fim)
-       // throw new IllegalArgumentException();
-    
-    // Instancia o array que sera retornado
-    Venda a[] = new Venda[100];
-    
-    for(int i=inicio, j=0; i<fim; i++, j++) {
-        a[j] = vendas[i];
+else {
+        return null;
     }
-    
-    // Retorna o array com os elementos da sublist
-    return a;
 }
 
 @Override
 public String toString() {
-    return "HistoricoVendas [Vendas = " + Arrays.toString(vendas) + "]";
+    return "HistoricoVendas [" + Arrays.toString(vendas) + "]";
 }
 
 }

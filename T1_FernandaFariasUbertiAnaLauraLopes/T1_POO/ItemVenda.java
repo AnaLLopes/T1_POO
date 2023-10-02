@@ -37,10 +37,7 @@ public class ItemVenda
 
     @Override
     public String toString() {
-        return "ItemVenda [produto=" + produto + 
-        ", precoUnitarioCobrado=" + precoUnitarioCobrado + 
-        ", quantidade="
-                + quantidade + "]";
+        return "ItemVenda [" + produto + ", precoUnitarioCobrado=" + precoUnitarioCobrado + ", quantidade=" + quantidade + "]\n";
     }
 
 }

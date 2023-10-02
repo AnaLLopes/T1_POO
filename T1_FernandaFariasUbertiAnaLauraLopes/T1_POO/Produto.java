@@ -27,8 +27,6 @@ public class Produto {
 
     @Override
     public String toString() {
-        return "Produto [Código =" + codigo + 
-        ", Descrição = " + descricao + 
-        ", Preço Unitário = " + precoUnitario + "]";
+        return "[Produto => Código =" + codigo + ", Descrição = " + descricao + ", Preço Unitário = " + precoUnitario ;
     }
 }
