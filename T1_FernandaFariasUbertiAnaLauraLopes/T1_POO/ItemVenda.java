@@ -4,9 +4,7 @@ public class ItemVenda
     private double precoUnitarioCobrado;
     private int quantidade;
 
-
-    //precisa ter construtor?
-    public ItemVenda(Produto produtoe, int quant)//A quantidade vem por parametro ?
+    public ItemVenda(Produto produtoe, int quant)
         {
             this.quantidade = quant;
             this.produto = produtoe;

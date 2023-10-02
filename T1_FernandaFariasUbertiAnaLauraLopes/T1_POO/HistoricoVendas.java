@@ -4,7 +4,7 @@ public class HistoricoVendas
 {
  private Venda[] vendas;   
 
-public HistoricoVendas(int tamanho)// o tamanho do array recebe por parametro?
+public HistoricoVendas(int tamanho)
 {
     this.vendas = new Venda[tamanho];
 }

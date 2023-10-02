@@ -1,6 +1,23 @@
 import java.util.Scanner;
 
 public class App {
+    public static boolean insereCod(int cod, int[] arrayCod, int tamanho)
+    {
+        for(int i = 0; i<arrayCod.length;i++)
+        {
+            arrayCod[i] = cod;
+        }
+        return true;
+    }
+
+    public static boolean contemCod(int cod, int tamanho, int[] arraycod) { 
+        for(int i=0; i<tamanho; i++) {
+            if (cod==arraycod[i]) {
+                return true;
+            }
+        }
+        return false; 
+    }
     public static void main(String args[]) {
 
         CatalogoProdutos catalogo = new CatalogoProdutos();
@@ -11,10 +28,12 @@ public class App {
         catalogo.cadastraProduto(p2);
         catalogo.cadastraProduto(p3);
 
-        int [] codigos = new int [5];
-        codigos[0] = Produto.getCodigo(p1);
-        codigos[1] = Produto.getCodigo(p2);
-        codigos[2] = Produto.getCodigo();
+        int[] codigos = new int [100];
+        int tamanho = codigos.length;
+ 
+        App.insereCod(10,codigos, tamanho);
+        App.insereCod(11,codigos, tamanho);
+        App.insereCod(30,codigos, tamanho);
 
         Estoque e = new Estoque(3); //criei o estoque(mudar o tamanhao)
 
@@ -70,11 +89,16 @@ public class App {
                                 case 1:
                                     System.out.println("Digite o código do produto:");
                                     int cod = scanner.nextInt();
+                                    boolean resp = contemCod(cod, tamanho, codigos);
+                                    if(resp == true){
                                     System.out.println("Digite a quantidade do produto:");
                                     int quant = scanner.nextInt();
                                     boolean insereItemNaVenda = vendam.insereItem(cod, quant, e);
                                     boolean baixa = e.baixaEstoque(cod,quant);
                                     System.out.println("Item inserido com sucesso!");
+                                    }
+                                    else
+                                    {System.out.println("Codigo digitado errado! Digite novamente ");}
                                     break;
                         
                                 case 2:
@@ -93,7 +117,11 @@ public class App {
                     System.out.println("Opção 2 selecionada: Verificar quantidade do produto no estoque");
                     System.out.println("Digite o código do produto:");
                     int c = scanner.nextInt();
+                    boolean respc = contemCod(c, tamanho, codigos);
+                    if(respc == true){
                     System.out.println("Quantidade disponível: " + e.getQuantidadeDisponivel(c));
+                    }
+                    else{System.out.println("Codigo digitado errado! Digite novamente ");}
                     break;
                 case 3:
                     System.out.println("Opção 3 selecionada: Verificar histórico de vendas");
@@ -156,10 +184,13 @@ public class App {
                 System.out.println("Opção 6: Realizar reposição");
                     System.out.println("Digite o código do produto:");
                     int codr = scanner.nextInt();
+                    boolean respr = contemCod(codr, tamanho, codigos);
+                    if(respr == true){
                     System.out.println("Digite a quantidade do produto:");
                     int quantr = scanner.nextInt();
                     boolean rep = e.reposicaoEstoque(codr, quantr);
-                    System.out.println("Reposição realizada com sucesso!");
+                    System.out.println("Reposição realizada com sucesso!");}
+                    else {System.out.println("O número digitado é inválido! Digite um número válido!");}
                 case 7: 
                     System.out.println("Opção 7: Cadastrar produto");
                     System.out.println("Digite o código do produto:");
@@ -169,7 +200,8 @@ public class App {
                     System.out.println("Digite o preço unitário do produto");
                     double prec = scanner.nextDouble();
                     Produto p7 = new Produto(codc, desc, prec);
-                    catalogo.cadastraProduto(p7);
+                    boolean caa = catalogo.cadastraProduto(p7);
+                    boolean caas =App.insereCod(codc,codigos, tamanho);
                     System.out.println("Produto cadastrado com sucesso!");
                     break;
                 case 8:
@@ -182,4 +214,3 @@ public class App {
         }
     }
 }
-
