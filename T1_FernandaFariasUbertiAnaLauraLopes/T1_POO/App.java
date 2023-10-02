@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String args[]) {
+
         CatalogoProdutos catalogo = new CatalogoProdutos();
         Produto p1 = new Produto(10, "Geladeira", 3000);
         Produto p2 = new Produto(11, "Ar Condicionado", 2500);
@@ -55,29 +56,34 @@ public class App {
                         System.out.println("2. Finalizar venda");
                         System.out.println("===============");
                         int nv = scanner.nextInt();
-                        switch(nv)
-                        {
-                            case 1:
-                                System.out.println("Digite o código do produto:");
-                                int cod = scanner.nextInt();
-                                System.out.println("Digite a quantidade do produto:");
-                                int quant = scanner.nextInt();
-                                boolean insereItemNaVenda = vendam.insereItem(cod, quant, e);
-                                boolean baixa = e.baixaEstoque(cod,quant);
-                                System.out.println("Item inserido com sucesso!");
-                                break;
+                        if (nv<1 || nv>2){
+                            System.out.println("O número digitado é inválido! Digite um número válido!");
+                        }
+                        else{
+                            switch(nv)
+                            {
+                                case 1:
+                                    System.out.println("Digite o código do produto:");
+                                    int cod = scanner.nextInt();
+                                    System.out.println("Digite a quantidade do produto:");
+                                    int quant = scanner.nextInt();
+                                    boolean insereItemNaVenda = vendam.insereItem(cod, quant, e);
+                                    boolean baixa = e.baixaEstoque(cod,quant);
+                                    System.out.println("Item inserido com sucesso!");
+                                    break;
                         
-                            case 2:
-                                vendam.imprimeRecibo();
-                                boolean cadastrav = hv.cadastraVenda(vendam);
-                                System.out.println("Venda finalizada!");
-                                sec = false;
-                                break;
+                                case 2:
+                                    vendam.imprimeRecibo();
+                                    boolean cadastrav = hv.cadastraVenda(vendam);
+                                    System.out.println("Venda finalizada!");
+                                    sec = false;
+                                    break;
                             
+                            }
                         }
                     }
-                break;
-
+                    break;
+                
                 case 2:
                     System.out.println("Opção 2 selecionada: Verificar quantidade do produto no estoque");
                     System.out.println("Digite o código do produto:");
@@ -92,30 +98,36 @@ public class App {
                         System.out.println("2. Verificar últimas vendas");
                         System.out.println("===============");
                         int menuhv = scanner.nextInt();
-                        switch(menuhv)
-                        {
-                            case 1:
-                                System.out.println(hv);
-                                sec = false;
-                                break;
+                        if (menuhv<1||menuhv>2){
+                            System.out.println("O número digitado é inválido! Digite um número válido!");
+
+                        }
+                        else{
+                            switch(menuhv)
+                            {
+                                case 1:
+                                    System.out.println(hv);
+                                    sec = false;
+                                    break;
                         
-                            case 2:
-                            System.out.println("Digite a quantidade de vendas que deseja ver");
-                            int quantv = scanner.nextInt();
-                            Venda[] ultimasVendas = hv.getUltimasVendas(quantv);
-                            if(ultimasVendas != null)
-                            {
-                                for(Venda imprimiArrayVendas: ultimasVendas)
+                                case 2:
+                                System.out.println("Digite a quantidade de vendas que deseja ver");
+                                int quantv = scanner.nextInt();
+                                Venda[] ultimasVendas = hv.getUltimasVendas(quantv);
+                                if(ultimasVendas != null)
                                 {
-                                    System.out.println(imprimiArrayVendas);
+                                    for(Venda imprimiArrayVendas: ultimasVendas)
+                                    {
+                                        System.out.println(imprimiArrayVendas);
+                                    }
                                 }
+                                else
+                                {
+                                    System.out.println("O histórico de vendas não possui nenhuma venda cadastrada");
+                                }
+                                    sec = false;
+                                    break;
                             }
-                            else
-                            {
-                                System.out.println("O histórico de vendas não possui nenhuma venda cadastrada");
-                            }
-                                sec = false;
-                                break;
                         }
                     }
                     break;
@@ -163,5 +175,6 @@ public class App {
                     System.out.println("Opção inválida. Por favor, escolha uma opção válida.");
             }
         }
+    }
 }
-}
+
