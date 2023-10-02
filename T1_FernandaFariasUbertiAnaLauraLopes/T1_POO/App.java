@@ -11,6 +11,11 @@ public class App {
         catalogo.cadastraProduto(p2);
         catalogo.cadastraProduto(p3);
 
+        int [] codigos = new int [5];
+        codigos[0] = Produto.getCodigo(p1);
+        codigos[1] = Produto.getCodigo(p2);
+        codigos[2] = Produto.getCodigo();
+
         Estoque e = new Estoque(3); //criei o estoque(mudar o tamanhao)
 
         
